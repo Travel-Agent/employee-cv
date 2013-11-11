@@ -3,13 +3,16 @@
 angular.module('employeeCvApp', [
         'ngRoute'
     ])
-    .config(function ($routeProvider) {
+    .config(function ($routeProvider, $locationProvider) {
+
         $routeProvider
-            .when('/', {
-                templateUrl: 'views/main.html',
-                controller : 'MainCtrl'
+            .when('/employee', {
+                templateUrl: 'views/employee.html',
+                controller : 'EmployeeCtrl'
             })
             .otherwise({
-                redirectTo: '/'
+                redirectTo: '/employee'
             });
+
+        $locationProvider.html5Mode(true);
     });
