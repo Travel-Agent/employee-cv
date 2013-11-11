@@ -9,18 +9,17 @@
         <table class="table table-striped table-bordered table-hover">
             <thead>
             <th>Field Name</th>
-            <th>Field Options</th>
+            <th>Field Weight</th>
             </thead>
             <tbody>
 
-            <tr ng-repeat="opt in employeeOptions">
-                <td class="text-center">{{opt.name | uppercase}}</td>
+            <tr ng-repeat="opt in fieldNames">
+                <td class="text-center">{{opt | uppercase}}</td>
                 <td>
-                    <div class="col-xs-4" ng-if="opt.options">
-                        <input class="form-control" type="text" ng-model="opt.options" ng-list>
-                    </div>
-                    <div class="col-xs-4" ng-if="!opt.options">
-                        <input class="form-control" type="text" ng-model="opt.value">
+                    <div class="col-xs-3">
+                        <input class="form-control col-xs-3" placeholder="Enter weight..." type="text"
+                               ng-model="weights[opt]">
+
                     </div>
                 </td>
             </tr>

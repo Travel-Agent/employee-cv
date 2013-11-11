@@ -10,6 +10,11 @@ angular.module('employeeCvApp', [
                 templateUrl: 'views/employee.html',
                 controller : 'EmployeeCtrl'
             })
+
+            .when('/employer', {
+                templateUrl: 'views/employer.html',
+                controller : 'EmployerCtrl'
+            })
             .otherwise({
                 redirectTo: '/employee'
             });
