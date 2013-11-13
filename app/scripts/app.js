@@ -9,11 +9,15 @@ angular.module('employeeCvApp', [
             .when('/employee', {
                 templateUrl: 'views/employee.html',
                 controller : 'EmployeeCtrl'
-            })
 
+            })
             .when('/employer', {
                 templateUrl: 'views/employer.html',
                 controller : 'EmployerCtrl'
+            })
+            .when('/admin', {
+                templateUrl: 'views/admin.html',
+                controller : 'AdminCtrl'
             })
             .otherwise({
                 redirectTo: '/employee'

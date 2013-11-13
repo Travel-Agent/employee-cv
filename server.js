@@ -44,7 +44,7 @@ app.configure('production', function () {
 // Routes
 app.get('/api/awesomeThings', api.awesomeThings);
 
-//general routing
+//general catch all routing
 app.use(function (req, res) {
     res.sendfile(__dirname + '/app/index.html');
 });

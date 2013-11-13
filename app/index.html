@@ -50,8 +50,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/employee">Employees</a></li>
-                    <li><a href="/employer">Employers</a></li>
+                    <li ng-class="{active: activeTab ==='employee'}"><a href="/employee">Employees</a></li>
+                    <li ng-class="{active: activeTab ==='employer'}"><a href="/employer">Employers</a></li>
+                    <li ng-class="{active: activeTab ==='admin'}"><a href="/admin">Admin</a></li>
                 </ul>
 
             </div>
@@ -108,6 +109,13 @@
 <script src="scripts/controllers/Main.js"></script>
 <script src="scripts/controllers/Employee.js"></script>
 <script src="scripts/controllers/Employer.js"></script>
+<script src="scripts/controllers/Admin.js"></script>
 <!-- endbuild -->
+
+<div class="navbar navbar-fixed-bottom">
+    <div class="container">
+        <p class="muted credit">Copyright by Gilad Peleg @2013</p>
+    </div>
+</div>
 </body>
 </html>
