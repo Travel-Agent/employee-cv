@@ -21,8 +21,9 @@ require('./lib/db/dummydata');
 
 // Controllers
 var api = require('./lib/controllers/api');
+var appRoute = ('development' === app.get('env')) ? 'app' : 'public';
 
-// Express Configuration
+// Express All configuration
 app.configure(function () {
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
@@ -30,27 +31,25 @@ app.configure(function () {
     app.use(app.router);
 });
 
+
+//express development configuration
 app.configure('development', function () {
     app.use(express.static(path.join(__dirname, '.tmp')));
-    app.use(express.static(path.join(__dirname, 'app')));
+    app.use(express.static(path.join(__dirname, appRoute)));
     app.use(express.errorHandler());
-    //general catch all routing
-    app.use(function (req, res) {
-        res.sendfile(__dirname + '/app/index.html');
-    });
-
 });
 
 app.configure('production', function () {
-    app.use(express.favicon(path.join(__dirname, 'public/favicon.ico')));
-    app.use(express.static(path.join(__dirname, 'public')));
-    app.use(function (req, res) {
-        res.sendfile(__dirname + '/public/index.html');
-    });
+    app.use(express.favicon(path.join(__dirname, appRoute, 'favicon.ico')));
+    app.use(express.static(path.join(__dirname, appRoute)));
 });
 
 // Routes
 app.get('/api/awesomeThings', api.awesomeThings);
+
+app.use(function (req, res) {
+    res.sendfile(path.join(__dirname, appRoute, 'index.html'));
+});
 
 // Start server
 var port = process.env.PORT || 3000;
