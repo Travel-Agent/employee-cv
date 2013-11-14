@@ -31,7 +31,6 @@ app.configure(function () {
     app.use(app.router);
 });
 
-
 //express development configuration
 app.configure('development', function () {
     app.use(express.static(path.join(__dirname, '.tmp')));
@@ -39,6 +38,7 @@ app.configure('development', function () {
     app.use(express.errorHandler());
 });
 
+//express production conf
 app.configure('production', function () {
     app.use(express.favicon(path.join(__dirname, appRoute, 'favicon.ico')));
     app.use(express.static(path.join(__dirname, appRoute)));
@@ -47,6 +47,7 @@ app.configure('production', function () {
 // Routes
 app.get('/api/awesomeThings', api.awesomeThings);
 
+//general catch route
 app.use(function (req, res) {
     res.sendfile(path.join(__dirname, appRoute, 'index.html'));
 });
