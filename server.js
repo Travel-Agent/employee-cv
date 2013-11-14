@@ -34,20 +34,23 @@ app.configure('development', function () {
     app.use(express.static(path.join(__dirname, '.tmp')));
     app.use(express.static(path.join(__dirname, 'app')));
     app.use(express.errorHandler());
+    //general catch all routing
+    app.use(function (req, res) {
+        res.sendfile(__dirname + '/app/index.html');
+    });
+
 });
 
 app.configure('production', function () {
     app.use(express.favicon(path.join(__dirname, 'public/favicon.ico')));
     app.use(express.static(path.join(__dirname, 'public')));
+    app.use(function (req, res) {
+        res.sendfile(__dirname + '/public/index.html');
+    });
 });
 
 // Routes
 app.get('/api/awesomeThings', api.awesomeThings);
-
-//general catch all routing
-app.use(function (req, res) {
-    res.sendfile(__dirname + '/app/index.html');
-});
 
 // Start server
 var port = process.env.PORT || 3000;
