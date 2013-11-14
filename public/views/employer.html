@@ -1,0 +1,36 @@
+<div class="container">
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Employee C.V</div>
+        <div class="panel-body">
+            <p>There is where an employer can enter his weight and find a worker</p>
+            <button class="btn btn-info">Find Worker</button>
+        </div>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <th class="text-center">Field Name</th>
+            <th>Best Fit</th>
+            <th>Field Weight</th>
+            </thead>
+            <tbody>
+
+            <tr ng-repeat="opt in fieldNames">
+                <td class="text-center">{{opt | uppercase}}</td>
+                <td>
+                    <div class="col-xs-5">
+                        <input class="form-control col-xs-3" placeholder="Desired value" type="text" ng-model="bestFit[opt]">
+                    </div>
+                </td>
+                <td>
+                    <div class="col-xs-5">
+                        <input class="form-control col-xs-3" placeholder="Enter weight..." type="text" ng-model="weights[opt]">
+
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div> <!-- /container -->
